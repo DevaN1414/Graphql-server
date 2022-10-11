@@ -1,0 +1,43 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+ 
+}
+
+model Entities {
+  id Int @id @default(autoincrement())
+  name String
+  email String  @unique
+  mobile Int @unique
+  location String
+  address String  
+  createdBy Int
+  createdAt DateTime @default(now())
+  updatedBy Int
+  updatedAt DateTime @default(now())
+  deletedBy Int
+  deletedAt DateTime @default(now())
+}
+
+model workspace {
+  id Int @id @default(autoincrement())
+  name String
+  email String  @unique
+  mobile Int @unique
+  location String
+  address String  
+  createdBy Int
+  createdAt DateTime @default(now())
+  updatedBy Int
+  updatedAt DateTime @default(now())
+  deletedBy Int
+  deletedAt DateTime @default(now())
+}
